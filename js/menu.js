@@ -1,12 +1,29 @@
 const cardsMenu = document.querySelector('.cards-menu')
 
 
+const cartArray = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
 
 buttonOut.addEventListener('click', () => {
     logout()
     window.location.href = '/index.html'
     modalAuth.style.display = 'flex'
 })
+
+const addToCart = (cartItem) => {
+    if (cartArray.some((item) => item.id === cartItem.id)) {
+        cartArray.map(item => {
+            if (item.id === cartItem.id) {
+                item.count++
+            }
+
+            return item
+        })
+    } else {
+        cartArray.push(cartItem)
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cartArray))
+}
 
 const changeTitle = (restaurant) => {
     const restaurantTitle = document.querySelector('.restaurant-title')
@@ -21,7 +38,7 @@ const changeTitle = (restaurant) => {
 }
 
 const renderItems = (data) => {
-    data.forEach(({ description, image, name, price }) => {
+    data.forEach(({ description, id, image, name, price }) => {
         const card = document.createElement('div')
 
         card.classList.add('card')
@@ -46,6 +63,9 @@ const renderItems = (data) => {
                 </div>
             </div>
         `
+        card.querySelector('.button-card-text').addEventListener('click', () => {
+            addToCart({ name, price, id, count: 1 })
+        })
 
         cardsMenu.append(card)
     })
