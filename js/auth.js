@@ -17,8 +17,6 @@ const login = (user) => {
 
     userName.textContent = user.login
     modalAuth.style.display = 'none'
-
-    authBorder.style.removeProperty("border-color")
 }
 
 const logout = () => {
@@ -32,6 +30,7 @@ const logout = () => {
 }
 
 buttonAuth.addEventListener('click', () => {
+    authBorder.classList.remove('auth-border')
     modalAuth.style.display = 'flex'
 })
 
@@ -55,7 +54,7 @@ logInForm.addEventListener('submit', (event) => {
         localStorage.setItem('user', JSON.stringify(user))
         login(user)
     } else {
-        authBorder.style.borderColor = '#ff000096'
+        authBorder.classList.add('auth-border')
     }
 
 })

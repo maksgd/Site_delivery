@@ -1,7 +1,14 @@
 const cardsMenu = document.querySelector('.cards-menu')
 
+
+
+buttonOut.addEventListener('click', () => {
+    logout()
+    window.location.href = '/index.html'
+    modalAuth.style.display = 'flex'
+})
+
 const changeTitle = (restaurant) => {
-    console.log(restaurant)
     const restaurantTitle = document.querySelector('.restaurant-title')
     const restaurantRating = document.querySelector('.rating')
     const restaurantPrice = document.querySelector('.price')
@@ -14,7 +21,7 @@ const changeTitle = (restaurant) => {
 }
 
 const renderItems = (data) => {
-    data.forEach(({ description, id, image, name, price }) => {
+    data.forEach(({ description, image, name, price }) => {
         const card = document.createElement('div')
 
         card.classList.add('card')
@@ -41,7 +48,7 @@ const renderItems = (data) => {
         `
 
         cardsMenu.append(card)
-    });
+    })
 }
 
 
@@ -61,4 +68,6 @@ if (localStorage.getItem('restaurant')) {
 } else {
     window.location.href = '/'
 }
+
+
 

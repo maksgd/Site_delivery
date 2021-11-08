@@ -487,6 +487,10 @@ button {
     margin-bottom: 22px;
 }
 
+.auth-border {
+    border-color: #ff000096;
+}
+
 .food-row {
     display: flex;
     align-items: flex-start;

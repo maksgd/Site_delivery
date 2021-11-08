@@ -35,6 +35,7 @@ const renderItems = (data) => {
 
                 window.location.href = '/restaurant.html'
             } else {
+                authBorder.classList.remove('auth-border')
                 modalAuth.style.display = 'flex'
             }
         })
