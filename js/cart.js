@@ -4,7 +4,8 @@ const cart = () => {
     const close = modalCart.querySelector('.close')
     const body = modalCart.querySelector('.modal-body')
     const buttonSend = modalCart.querySelector('.button-primary')
-
+    const buttonClear = modalCart.querySelector('.clear-cart')
+    const sumSend = modalCart.querySelector('.modal-pricetag')
 
 
     const resetCart = () => {
@@ -17,7 +18,6 @@ const cart = () => {
         const cartArray = JSON.parse(localStorage.getItem('cart'))
 
         cartArray.map((item) => {
-
             if (item.id === id) {
                 item.count++
             }
@@ -36,8 +36,9 @@ const cart = () => {
 
             if (item.id === id) {
                 item.count = item.count > 0
-                    ? item.count - 1
+                    ? item.count = item.count - 1
                     : item.count = 0
+
             }
 
             return item
@@ -49,6 +50,7 @@ const cart = () => {
 
     const renderItems = (data) => {
         body.innerHTML = ''
+        let sum = 0
 
         data.forEach(({ name, price, id, count }) => {
             const cartElem = document.createElement('div')
@@ -64,6 +66,8 @@ const cart = () => {
                     <button class="counter-button btn-inc" data-index="${id}">+</button>
                 </div>
             `
+            sum = sum + (price * count)
+            sumSend.innerHTML = `${sum} ₽`
 
             body.append(cartElem)
         })
@@ -94,6 +98,13 @@ const cart = () => {
             .catch(e => {
                 console.error(e)
             })
+    })
+
+    buttonClear.addEventListener('click', () => {
+        body.innerHTML = ''
+        localStorage.removeItem('cart')
+        modalCart.classList.remove('is-open')
+        sumSend.innerHTML = `${0} ₽`
     })
 
     buttonCart.addEventListener('click', () => {

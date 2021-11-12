@@ -1,4 +1,5 @@
 const cardsMenu = document.querySelector('.cards-menu')
+const addCard = document.getElementById('addCard')
 
 
 const cartArray = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
@@ -70,6 +71,17 @@ const renderItems = (data) => {
         cardsMenu.append(card)
     })
 }
+
+cardsMenu.addEventListener('click', (e) => {
+    if (e.target.classList.contains('button')) {
+        console.log('Почемуто мимо')
+    } else {
+        addCard.style.display = 'block'
+        setTimeout(() => {
+            addCard.style.display = 'none'
+        }, 2000)
+    }
+})
 
 
 if (localStorage.getItem('restaurant')) {

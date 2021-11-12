@@ -161,6 +161,20 @@ button {
     font-size: 18px;
 }
 
+.add-card {
+    display: none;
+    position: fixed;
+    left: 30px;
+}
+
+.add-card-img {
+    width: 90px;
+}
+
+.has {
+    display: block;
+}
+
 .promo-slider {
 
     width: 600px;
