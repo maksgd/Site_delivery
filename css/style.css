@@ -162,6 +162,7 @@ button {
 }
 
 .add-card {
+    z-index: -1;
     opacity: 0;
     position: fixed;
     left: 30px;

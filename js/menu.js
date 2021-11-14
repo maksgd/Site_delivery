@@ -77,8 +77,10 @@ cardsMenu.addEventListener('click', (e) => {
     if (e.target.classList.contains('button') ||
         e.target.classList.contains('button-card-text')) {
 
+        addCard.style.zIndex = '1'
         addCard.style.opacity = '1'
         setTimeout(() => {
+            addCard.style.zIndex = '-1'
             addCard.style.opacity = '0'
         }, 1000)
 
