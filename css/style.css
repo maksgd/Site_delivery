@@ -790,6 +790,10 @@ button {
 }
 
 @media (max-width: 480px) {
+    .search {
+        margin-left: 0;
+    }
+
     .modal-pricetag {
         width: 100px;
         height: 60px;
