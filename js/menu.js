@@ -6,8 +6,9 @@ const cartArray = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem
 
 buttonOut.addEventListener('click', () => {
     logout()
-    window.location.href = '/index.html'
-    modalAuth.style.display = 'flex'
+    window.location.href = 'index.html'
+    alert('Для доступа к меню необходима авторизация!')
+
 })
 
 const addToCart = (cartItem) => {
@@ -76,9 +77,9 @@ cardsMenu.addEventListener('click', (e) => {
     if (e.target.classList.contains('button')) {
         console.log('Почемуто мимо')
     } else {
-        addCard.style.display = 'block'
+        addCard.style.opacity = '1'
         setTimeout(() => {
-            addCard.style.display = 'none'
+            addCard.style.opacity = '0'
         }, 2000)
     }
 })

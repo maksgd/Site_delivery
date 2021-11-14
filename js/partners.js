@@ -5,7 +5,7 @@ const renderItems = (data) => {
         const { image, kitchen, name, price, products, stars, time_of_delivery } = item
         const a = document.createElement('a')
 
-        a.setAttribute('href', '/restaurant.html')
+        a.setAttribute('href', 'restaurant.html')
         a.classList.add('card')
         a.classList.add('card-restaurant')
         a.dataset.products = products
@@ -33,7 +33,7 @@ const renderItems = (data) => {
             if (localStorage.getItem('user')) {
                 localStorage.setItem('restaurant', JSON.stringify(item))
 
-                window.location.href = '/restaurant.html'
+                window.location.href = 'restaurant.html'
             } else {
                 authBorder.classList.remove('auth-border')
                 modalAuth.style.display = 'flex'

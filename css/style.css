@@ -162,17 +162,14 @@ button {
 }
 
 .add-card {
-    display: none;
+    opacity: 0;
     position: fixed;
     left: 30px;
+    transition: all 1s ease 0s;
 }
 
 .add-card-img {
     width: 90px;
-}
-
-.has {
-    display: block;
 }
 
 .promo-slider {
@@ -793,6 +790,15 @@ button {
 }
 
 @media (max-width: 480px) {
+    .modal-pricetag {
+        width: 100px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+
     .button-text {
         display: none;
     }
@@ -814,7 +820,11 @@ button {
     .button {
         min-height: 40px;
         padding: 5px 12px;
+        border-radius: 5px;
+    }
 
+    .button-primary {
+        margin-left: 5px;
     }
 
     .button-out-svg {
@@ -834,6 +844,10 @@ button {
 
     .section-heading {
         flex-wrap: wrap;
+    }
+
+    .modal-footer {
+        width: 270px;
     }
 
     .footer-block {
