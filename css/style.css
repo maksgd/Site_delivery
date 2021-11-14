@@ -326,7 +326,7 @@ button {
 .card-price-bold {
     font-weight: bold;
     font-size: 20px;
-    line-height: 32px;
+    line-height: 45px;
     margin-left: 30px;
 }
 
@@ -790,6 +790,14 @@ button {
 }
 
 @media (max-width: 480px) {
+    .food-price {
+        margin-right: 2px;
+    }
+
+    .modal-body {
+        width: 308px;
+    }
+
     .search {
         margin-left: 0;
     }
@@ -851,7 +859,7 @@ button {
     }
 
     .modal-footer {
-        width: 270px;
+        width: 305px;
     }
 
     .footer-block {

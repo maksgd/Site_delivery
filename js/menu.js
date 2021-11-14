@@ -65,7 +65,7 @@ const renderItems = (data) => {
                 </div>
             </div>
         `
-        card.querySelector('.button-card-text').addEventListener('click', () => {
+        card.querySelector('.button-add-cart').addEventListener('click', () => {
             addToCart({ name, price, id, count: 1 })
         })
 
@@ -74,16 +74,18 @@ const renderItems = (data) => {
 }
 
 cardsMenu.addEventListener('click', (e) => {
-    if (e.target.classList.contains('button')) {
-        console.log('Почемуто мимо')
-    } else {
+    if (e.target.classList.contains('button') ||
+        e.target.classList.contains('button-card-text')) {
+
         addCard.style.opacity = '1'
         setTimeout(() => {
             addCard.style.opacity = '0'
-        }, 2000)
+        }, 1000)
+
+    } else {
+        console.log('Почемуто мимо')
     }
 })
-
 
 if (localStorage.getItem('restaurant')) {
     const restaurant = JSON.parse(localStorage.getItem('restaurant'))

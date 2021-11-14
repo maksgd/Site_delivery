@@ -8,6 +8,7 @@ const cart = () => {
     const sumSend = modalCart.querySelector('.modal-pricetag')
 
 
+
     const resetCart = () => {
         body.innerHTML = ''
         localStorage.removeItem('cart')
@@ -99,6 +100,7 @@ const cart = () => {
                 console.error(e)
             })
     })
+
 
     buttonClear.addEventListener('click', () => {
         body.innerHTML = ''
